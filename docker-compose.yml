@@ -19,6 +19,6 @@ services:
       dockerfile: src/CalculaJuros.Api/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://+:5000
+      - ASPNETCORE_URLS=http://+:80
     ports:
-      - "5000:5000"
+      - "80:80"
