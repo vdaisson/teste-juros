@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  taxajuros.api:
+    image: ${DOCKER_REGISTRY-}taxajurosapi
+    build:
+      context: .
+      dockerfile: src/TaxaJuros/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80:80"
+
+  calculajuros.api:
+    image: ${DOCKER_REGISTRY-}calculajurosapi
+    build:
+      context: .
+      dockerfile: src/CalculaJuros.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
